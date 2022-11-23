@@ -195,6 +195,7 @@ fn main() {
                 continue;
             }
             let file = file.unwrap();
+            if file.metadata().unwrap().len() < 2000 { continue; } // hmm
             let mmap = Arc::new(unsafe { memmap2::Mmap::map(&file).unwrap() });
 
             bus.broadcast(mmap.clone());
