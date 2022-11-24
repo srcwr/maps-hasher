@@ -25,6 +25,7 @@ enum MyHash {
 struct Row {
     mapname: String,
     filesize: usize,
+    //filesize_bz2: usize,
     crc32ieee: String,
     md5: String,
     sha1: String,
@@ -52,6 +53,10 @@ fn main2() {
     }
 }
 */
+
+//fn main3() {
+    // get filesize of ../hashed/
+//}
 
 fn main() {
     /*
@@ -244,7 +249,7 @@ fn main() {
                 duration.as_secs_f64(),
                 path.display()
             );
-            last = Some((path, format!("../hashed/{}", row.sha3_512)));
+            last = Some((path, format!("../hashed/{}.bsp", row.sha3_512)));
             csv.serialize(row).unwrap();
             let _ = csv.flush();
         }
